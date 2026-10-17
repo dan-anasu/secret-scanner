@@ -1,4 +1,4 @@
-# Local configuration and secrets; keep .env.example tracked.
+# Local configuration and secrets; keep .env.example tracked if one exists.
 .env
 .env.*
 !.env.example
@@ -8,6 +8,10 @@
 *.pfx
 id_rsa
 id_ed25519
+
+# Local scan configuration
+.secret-scanner-allowlist
+.secret-scanner-cache/
 
 # Dependencies and local environments
 node_modules/

@@ -1,0 +1,50 @@
+name: Detector request
+description: Ask for a new secret detector, or report a detector's format as wrong.
+title: "[Detector]: "
+labels: ["detector"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Never paste a real secret. Describe or fake the shape of the value, or
+        replace random characters with placeholders such as `XXXX`.
+  - type: input
+    id: provider
+    attributes:
+      label: Provider or credential type
+      placeholder: "Stripe, Paystack, Flutterwave, ..."
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Request type
+      options:
+        - New detector
+        - Existing detector is wrong or out of date
+        - Detector produces false positives
+    validations:
+      required: true
+  - type: textarea
+    id: shape
+    attributes:
+      label: Value shape
+      description: Prefix, length, and allowed characters. Do not paste a real value.
+      placeholder: "Starts with `sk_live_` followed by about 24 characters."
+    validations:
+      required: true
+  - type: input
+    id: docs
+    attributes:
+      label: Link to the provider's documentation
+      description: A detector is only accepted with a link to the provider's current documentation.
+      placeholder: "https://docs.example.com/api-keys"
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      description: Optional. Why the existing format is wrong, or example false positives.
+    validations:
+      required: false

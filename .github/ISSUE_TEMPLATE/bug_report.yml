@@ -1,11 +1,28 @@
 name: Bug report
-description: Report a reproducible problem in the project.
+description: Report a reproducible problem in the scanner, the skill, or the docs.
 title: "[Bug]: "
 labels: ["bug"]
 body:
   - type: markdown
     attributes:
-      value: "For security vulnerabilities, follow SECURITY.md and report privately. Redact secrets and personal data from all public reports."
+      value: |
+        For a vulnerability in the scanner itself, follow SECURITY.md and report
+        privately. Never paste a real secret, private key, or personal data here.
+        Replace any secret-looking value with `REDACTED`.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of the project does this affect?
+      options:
+        - Scanner (scripts/scan.py)
+        - A detector (scripts/detectors/)
+        - Skill instructions (SKILL.md)
+        - Tests
+        - Documentation
+        - Other
+    validations:
+      required: true
   - type: textarea
     id: summary
     attributes:
@@ -19,7 +36,7 @@ body:
     attributes:
       label: Steps to reproduce
       description: Give the smallest set of steps that shows the problem.
-      placeholder: "1. Open ...\n2. Run ...\n3. Observe ..."
+      placeholder: "1. Run scan.py on ...\n2. Observe ..."
     validations:
       required: true
   - type: textarea
@@ -38,15 +55,15 @@ body:
     id: environment
     attributes:
       label: Environment and version
-      description: Include relevant project version, operating system, runtime, or browser.
-      placeholder: "Project version; OS; runtime/browser"
+      description: Scanner version, Python version, operating system, and whether git was used.
+      placeholder: "secret-scanner 0.1.0; Python 3.12; macOS; git not used"
     validations:
       required: true
   - type: textarea
     id: logs
     attributes:
-      label: Relevant logs
-      description: Optional. Redact tokens, passwords, personal data, and private URLs.
+      label: Relevant output
+      description: Optional. Paste the report with every secret-looking value replaced by REDACTED.
       render: text
     validations:
       required: false
@@ -54,6 +71,6 @@ body:
     id: context
     attributes:
       label: Screenshots or additional context
-      description: Optional. Remove personal or sensitive information before attaching files.
+      description: Optional. Remove secrets and personal data before attaching files.
     validations:
       required: false

@@ -1,35 +1,59 @@
-# Your first open-source contribution
+# Your first contribution to secret-scanner
 
-A contribution can be a clearer instruction, a reproducible bug report, a test, translation, accessibility fix, or code change. It does not need to be merged during a hackathon to be valuable learning.
+A contribution can be a clearer instruction, a reproducible bug report, a test,
+one detector, or a documentation fix. It does not need to be merged during a
+hackathon to be valuable learning.
 
-## 1. Select a project and check its license
+## 1. Check the license
 
-Choose a project you can run or understand, perhaps a student tool or community project you use. Look for a `LICENSE` file and read it. Public code without a license is not automatically open source. If you cannot tell whether contributions can be redistributed, ask maintainers before copying or changing material.
+This project is MIT. Read [`LICENSE`](../LICENSE). Public code without a license
+is not automatically open source, so check before you copy or change anything.
+By submitting a pull request you agree it can be released under this project's
+MIT license.
 
-## 2. Read the project instructions
+## 2. Read the instructions
 
-Read its README, contribution guide, and Code of Conduct. Check supported versions, setup steps, test commands, and how maintainers prefer to discuss work.
+Read [`README.md`](../README.md), [`CONTRIBUTING.md`](../CONTRIBUTING.md), and
+the [Code of Conduct](../CODE_OF_CONDUCT.md). The setup is just Python 3.9 or
+newer with no packages to install.
 
 ## 3. Find a suitable issue
 
-Look for labels such as `good first issue` or `documentation`. Read the issue and current discussion. If scope is unclear, ask a focused question. For a new idea, open an issue first, especially if the change is large.
+Look for labels such as `good first issue` or `documentation`. Good starters
+here are **add one detector** or **add one test case**; both are described in
+CONTRIBUTING. Read the issue and its discussion, and say you would like to work
+on it. For a new idea, open an issue first, especially if the change is large.
 
 ## 4. Fork, clone, and branch
 
-A **fork** is your GitHub copy; a **branch** is a separate line of work within a repository. Replace `YOUR_USERNAME`, `REPO_OWNER`, and `REPO_NAME` with the real GitHub names. Use your own branch name:
+A **fork** is your GitHub copy; a **branch** is a separate line of work within a
+repository. Click **Fork** on GitHub first, then replace `YOUR_USERNAME` with
+your GitHub username:
 
 ```sh
-git clone https://github.com/YOUR_USERNAME/REPO_NAME.git
-cd REPO_NAME
-git remote add upstream https://github.com/REPO_OWNER/REPO_NAME.git
-git switch -c docs/fix-setup-steps
+git clone https://github.com/YOUR_USERNAME/secret-scanner.git
+cd secret-scanner
+git remote add upstream https://github.com/dan-anasu/secret-scanner.git
+git switch -c detector/stripe-secret-key
 ```
 
-The commands assume you clicked **Fork** on GitHub first. `origin` points to your fork; `upstream` points to the original project. If `git switch` is unavailable in an older Git installation, update Git or use `git checkout -b docs/fix-setup-steps`.
+If `git switch` is unavailable, update Git or use
+`git checkout -b detector/stripe-secret-key`.
 
 ## 5. Make one focused change and test it
 
-Follow the project's documented setup. Edit only files related to your issue. Run the relevant tests or checks given in that project's README. For documentation, try the commands and check links. For a visual change, test keyboard interaction and text alternatives. If you cannot run a check, say why in the pull request.
+For a detector, copy `skills/secret-scanner/scripts/detectors/template.py`,
+verify the provider's key format against the provider's own documentation, and
+add a runtime-generated fake value to the tests.
+
+```sh
+python3 skills/secret-scanner/tests/run_tests.py
+python3 skills/secret-scanner/scripts/scan.py .
+```
+
+The first command must pass. The second should report no findings: the skill
+scans itself clean. Edit only files related to your issue. If you cannot run a
+check, say why in the pull request.
 
 ## 6. Review, commit, and push
 
@@ -37,17 +61,25 @@ Follow the project's documented setup. Edit only files related to your issue. Ru
 git status --short
 git diff --check
 git diff
-git add README.md
-git commit -m "docs: clarify setup steps"
-git push -u origin docs/fix-setup-steps
+git add skills/secret-scanner/scripts/detectors/stripe_secret_key.py
+git commit -m "detector: add stripe secret key"
+git push -u origin detector/stripe-secret-key
 ```
 
-Replace `README.md` with the files you actually changed and use your branch name. `git diff` lets you spot accidental changes; `git diff --check` detects whitespace problems. Before committing, remove secrets, personal data, and material you lack rights to share.
+Replace the staged file and branch with your own. `git diff` shows accidental
+changes; `git diff --check` finds whitespace problems. **Before committing,
+remove secrets, personal data, and material you lack the rights to share.**
+Never commit a real or realistic-looking key, even as a test value.
 
 ## 7. Open a pull request and respond to review
 
-On GitHub, open a **pull request** (a proposal to merge your branch) into the original project's default branch. Link the issue, explain what changed and why, list checks and results, and include screenshots only when useful. Use its pull request template.
+On GitHub, open a pull request into the default branch. Use the pull request
+template: link the issue, explain what changed and why, and list the checks you
+ran. Watch for review comments, ask for clarification when needed, update the
+same branch, rerun the checks, and push again.
 
-Watch for review comments. Ask for clarification when needed, update the same branch, rerun checks, and push again. Maintainers decide whether to merge, request more work, or decline the proposal. You still practiced a complete collaboration workflow even if it is not merged during the event.
+Maintainers decide whether to merge, request more work, or decline. You still
+practiced a complete collaboration workflow even if it is not merged during the
+event.
 
 For common terms, see the [FAQ](OPEN_SOURCE_FAQ.md).

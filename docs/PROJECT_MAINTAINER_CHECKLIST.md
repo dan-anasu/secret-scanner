@@ -1,28 +1,49 @@
 # Project maintainer checklist
 
-Maintainers set direction, review contributions, publish releases, and care for the community. Share these responsibilities when possible, and state who can make final decisions.
+Adapted from the [geekinks/open-source-project-template](https://github.com/geekinks/open-source-project-template)
+checklist (MIT). Maintainers set direction, review contributions, publish
+releases, and care for the community.
+
+Sole maintainer: **Anas Ishaq**. State co-maintainers here if that changes, and
+say who can merge and release.
 
 ## Before launch
 
-- [ ] Define the project's problem, intended users, scope, current limitations, and a small first milestone.
-- [ ] Choose a software license that fits the project; fill in its copyright details and check all owners can grant the rights.
-- [ ] Review third-party code, dependencies, datasets, model weights, fonts, and images for redistribution rights, required notices, and attribution.
-- [ ] Replace every bracketed value in the [README](../README.md), including installation, usage, actual test commands, support channel, and project status.
-- [ ] Verify a fresh contributor can set up the project without private instructions or production secrets.
-- [ ] Set a real private conduct-report contact in the [Code of Conduct](../CODE_OF_CONDUCT.md) and a working [security channel](../SECURITY.md).
-- [ ] Decide how issues are triaged, who reviews pull requests, how disagreements are resolved, and who can merge or release.
-- [ ] Create two or three useful starter issues with context, acceptance criteria, and expected verification. Add `good first issue` only when appropriate.
-- [ ] Automate tests, linting, or builds in CI where useful. Ensure people can also run the relevant checks locally.
-- [ ] For AI projects, complete an [AI model card](AI_MODEL_CARD_TEMPLATE.md) and verify model, dataset, API, dependency, and asset terms independently.
+- [x] Define the project's problem, intended users, scope, current limitations,
+  and a small first milestone. See the [README](../README.md).
+- [x] Choose a software license and fill in the copyright details. MIT,
+  Copyright (c) 2026 Anas Ishaq.
+- [x] Review third-party material for rights and attribution. No copied code;
+  community files adapted from an MIT template and credited.
+- [x] Replace bracketed values in the README and community files. Owner
+  (`dan-anasu`) and conduct contact are filled in.
+- [x] Verify a fresh contributor can set up the project. No install step;
+  Python 3.9+ only.
+- [x] Set a real private conduct contact and a working security channel.
+  Security uses GitHub private vulnerability reporting (enable it in Settings,
+  Security after the first push); the conduct contact is
+  anasishaq7110@gmail.com.
+- [ ] Decide how issues are triaged, who reviews pull requests, and who can
+  merge or release. Currently one maintainer.
+- [ ] Create two or three starter issues with acceptance criteria and a label.
+  The tasks are listed in [CONTRIBUTING.md](../CONTRIBUTING.md); create them on
+  GitHub.
+- [x] Automate tests in CI and keep a local command. See
+  [`.github/workflows/test.yml`](../.github/workflows/test.yml).
+- [x] For AI work, review model, dataset, API, dependency, and asset terms.
+  Not applicable here: the project ships no model, dataset, or API usage.
 
 ## During maintenance
 
-- [ ] Welcome contributors, respond respectfully, and give actionable reviews. Explain declines and out-of-scope decisions.
-- [ ] Keep setup steps, supported versions, roadmap, and known limitations current.
-- [ ] Review security reports privately; coordinate fixes and disclosure without a response-time promise you cannot meet.
-- [ ] Tag releases using a clear versioning approach, publish change notes, and explain breaking changes and migration steps.
-- [ ] Recheck dependency and third-party terms when adding or updating material.
-- [ ] State realistic review and release capacity. Add co-maintainers or reduce scope if needed.
-- [ ] If the project is archived or no longer maintained, say so prominently in the README and repository settings; explain whether contributions and security reports are still monitored.
+- [ ] Welcome contributors, respond respectfully, and give actionable reviews.
+- [ ] Keep setup steps, supported versions, roadmap, and limitations current.
+- [ ] Review security reports privately and coordinate fixes and disclosure.
+- [ ] Tag releases, publish change notes, and explain breaking changes.
+- [ ] Recheck third-party terms when adding material.
+- [ ] State realistic review capacity; add co-maintainers or reduce scope if
+  needed.
+- [ ] If the project is archived, say so prominently and explain whether issues
+  and security reports are still monitored.
 
-Use the [release checklist](OPEN_SOURCE_CHECKLIST.md) before public launches and major releases.
+Use the [release checklist](OPEN_SOURCE_CHECKLIST.md) before public launches and
+major releases.

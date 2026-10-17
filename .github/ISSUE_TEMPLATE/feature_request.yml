@@ -1,5 +1,5 @@
 name: Feature request
-description: Suggest a useful improvement.
+description: Suggest a useful improvement to the scanner, the skill, or the docs.
 title: "[Feature]: "
 labels: ["enhancement"]
 body:
@@ -21,7 +21,7 @@ body:
     id: alternatives
     attributes:
       label: Alternatives considered
-      description: Optional. Include workarounds or other approaches if you have tried them.
+      description: Optional. Include workarounds or other approaches you have tried.
     validations:
       required: false
   - type: textarea
@@ -35,6 +35,6 @@ body:
     id: context
     attributes:
       label: Additional context
-      description: Optional links, sketches, or examples. Do not include private data.
+      description: Optional links, sketches, or examples. Do not include private data or real secrets.
     validations:
       required: false
